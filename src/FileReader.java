@@ -14,7 +14,7 @@ public abstract  class FileReader {
      *
      *
      * @param pathName
-     * @return valuesinFile ; valuesInFile[objectindex][propertynameIndex][value]
+     * @return tableRead[][] ; {Column, Row}
      */
     public static String[][] readFile(String pathName) {
         try {
