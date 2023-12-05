@@ -1,0 +1,12 @@
+*Must fix so that the filechooser-actionlistener works
+
+
+
+Programflow:
+Gui()* extends JFrame
+
+-> *(1) contains (1) (ContentPanel^ extends JPanel)
+^ : contains :3 JButton {saveButton, sort-||-, fileChooser-||-}; 3 ActionListeners {saveListener,sort-||-,fileChooser-||-}.
+I think the pane will be the only changing interface so maybe we don´t need more actionListeners. Maybe AL in main, not sure. Should rename main
+
+

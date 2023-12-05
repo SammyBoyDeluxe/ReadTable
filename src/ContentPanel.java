@@ -41,9 +41,12 @@ public class ContentPanel extends JPanel {
 
 
                 }
+
             }
         };
-
+        saveButton.addActionListener(saveListener);
+        sortButton.addActionListener(sortListener);
+        fileChooserButton.addActionListener(fileChooserListener);
         /*1 This concludes the button-specific programming 1*/
 
 
