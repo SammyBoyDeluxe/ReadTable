@@ -10,7 +10,7 @@ public class main {
 
 
     public static void main(String[] args) {
-
+        GUI graphicalUserInterface = new GUI();
         String[][] fileRead = FileReader.readFile("src/Materiallista.json");
         for(String[] s : fileRead){
             for(String s2 : s){
