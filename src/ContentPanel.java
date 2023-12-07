@@ -8,7 +8,8 @@ import java.io.File;
 public class ContentPanel extends JPanel {
 
     private JTable table;
-
+    private JPanel buttonPanel;
+    private JScrollPane tableScrollPane;
     public ContentPanel(){
         /*Create a FileChooser with a currentDirectory in our src where we have our tablefiles*/
         final JFileChooser fc = new JFileChooser("/Users/ronne2/Desktop/Java-programmering (skola)/ReadTable/src");
@@ -53,10 +54,11 @@ public class ContentPanel extends JPanel {
                         data[i-1][col] = fileRead[col][i];
 
                     }
-                    ContentPanel.this.remove(table);
-                    table = new JTable(data,headers);
+
                     table.setSize(420,420);
-                    ContentPanel.this.add(table);
+                    table = new JTable(data,headers);
+                    /*Two scrollpanes currently I think, should check for block*/
+                    ContentPanel.this.tableScrollPane.add(table);
 
 
                 }
@@ -73,11 +75,12 @@ public class ContentPanel extends JPanel {
         buttonPanel.add(fileChooserButton);
         /*This makes sure that they are presented in a line*/
         buttonPanel.setLayout( new FlowLayout());
-        this.add(buttonPanel);
+
         /*1 This concludes the button-specific programming 1*/
 
         /*2 This starts the JTable´s container and initiate the JTable 2*/
-        JScrollPane tableScrollPane = new JScrollPane();
+        tableScrollPane = new JScrollPane();
+
         String[][] emptyData = new String[3][3];
         for(int i = 0; i < 3 ; i++) for(int k = 0 ; k < 3 ; k++){
             emptyData[k][i] = " ";
@@ -86,10 +89,11 @@ public class ContentPanel extends JPanel {
         String[] emptyHeaders = {" "," "," "};
 
         table = new JTable(4,4);
-        table.setBorder( BorderFactory.createLineBorder(Color.BLACK,200));
         table.setSize(420,420);
         tableScrollPane.add(table);
-        this.setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
+        this.setLayout(new BorderLayout());
+        this.add(tableScrollPane,BorderLayout.CENTER);
+        this.add(buttonPanel,BorderLayout.SOUTH);
         this.setVisible(true);
 
 

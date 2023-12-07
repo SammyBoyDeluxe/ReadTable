@@ -11,8 +11,9 @@ public class GUI extends JFrame {
         this.setSize(screenSize);
         this.setTitle("Tabell-läsar/skrivarprogram");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(new BorderLayout());
         contentPanel = new ContentPanel();
-        this.add(contentPanel);
+        this.add(contentPanel, BorderLayout.CENTER);
         this.setVisible(true);
 
 
