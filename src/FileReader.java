@@ -170,7 +170,7 @@ public abstract  class FileReader {
         /*Sets the number of columns to the number of property-valuue/Property-name pairs*/
         numbersOfcolsAndRows[0] = propertyNameValuePairs.length;
         /*Generate a string-array with appropriate space for our file-read*/
-        String[][] headersAndItemsInTable = new String[numbersOfcolsAndRows[0]][numbersOfcolsAndRows[1]];
+        String[][] headersAndValuesInTable = new String[numbersOfcolsAndRows[0]][numbersOfcolsAndRows[1]];
         /*For each propertyNameValue pair we need two spaces, one for name, one for value so 2*length should suffice*/
         String[] separatedPropertyNameValuePairs = new String[2*propertyNameValuePairs.length];
         String[] result;
@@ -187,12 +187,12 @@ public abstract  class FileReader {
         for(int i = 0 ; i < separatedPropertyNameValuePairs.length ; i++){
 
             if((i+2) % 2 == 0){
-                headersAndItemsInTable[(i/2)][0] = separatedPropertyNameValuePairs[i];
+                headersAndValuesInTable[(i/2)][0] = separatedPropertyNameValuePairs[i];
 
 
             }
             else{
-                headersAndItemsInTable[(i+2)%3][1] = separatedPropertyNameValuePairs[i];
+                headersAndValuesInTable[(i+2)%3][1] = separatedPropertyNameValuePairs[i];
 
 
             }
@@ -221,7 +221,7 @@ public abstract  class FileReader {
                 separatedPropertyNameValuePairs[counter] = result[0];
                 separatedPropertyNameValuePairs[counter+1] = result[1];
                 counter += 2;
-
+                
 
             }
 
@@ -229,7 +229,7 @@ public abstract  class FileReader {
             for(int i = 1 ; i < separatedPropertyNameValuePairs.length ; i += 2){
 
 
-                    headersAndItemsInTable[(counter)][row] = separatedPropertyNameValuePairs[i];
+                    headersAndValuesInTable[(counter)][row] = separatedPropertyNameValuePairs[i];
                     counter++;
 
 
@@ -242,7 +242,7 @@ public abstract  class FileReader {
 
         /*Generates an array of probable */
 
-        return headersAndItemsInTable;
+        return headersAndValuesInTable;
 
 
 
